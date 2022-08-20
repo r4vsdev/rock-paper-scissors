@@ -1,3 +1,25 @@
+let playerSelection;
+// let computerSelection;
+
+const btnRock = document.querySelector('.buttonRock');
+btnRock.addEventListener('click', () => {
+    playerSelection = 'rock';
+    playRound(playerSelection);
+});
+
+const btnPaper = document.querySelector('.buttonPaper');
+btnPaper.addEventListener('click', () => {
+    playerSelection = 'paper';
+    playRound(playerSelection);
+    
+});
+
+const btnScissors = document.querySelector('.buttonScissors');
+btnScissors.addEventListener('click', () => {
+    playerSelection = 'scissors';
+    playRound(playerSelection);
+});
+
 function getComputerChoice () {
     let x = Math.floor(Math.random() * 3);
     if (x === 0) {
@@ -9,12 +31,10 @@ function getComputerChoice () {
     }
 }
 
-// console.log(getComputerChoice())
-
-function playRound (playerSelection1, computerSelection1) {
-    // Case-insensitive
-    const playerSelection   = playerSelection1.toLowerCase();
-    const computerSelection = computerSelection1.toLowerCase();
+function playRound (playerSelection) {
+    const computerSelection = getComputerChoice();
+    console.log('computer selection =',computerSelection);
+    console.log(`${playerSelection} vs ${computerSelection}`);
 
     // Draw
     if (playerSelection === 'rock' && computerSelection === 'rock') {
@@ -39,19 +59,6 @@ function playRound (playerSelection1, computerSelection1) {
         return `You Won! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         return `You Won! ${playerSelection} beats ${computerSelection}`;
-}
-}
-
-// Write a NEW function called game(). 
-// Call the playRound function inside of this one to play a 5 round game
-// that keeps score and reports a winner or loser at the end.
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const computerSelection = getComputerChoice()
-        const playerSelection   = prompt('Choose rock, paper or scissors').toLowerCase()
-        
-        console.log(`${playerSelection} vs ${computerSelection}`)
-        console.log(playRound(playerSelection ,computerSelection))
     }
+    
 }
