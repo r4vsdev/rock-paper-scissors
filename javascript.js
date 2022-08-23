@@ -1,10 +1,10 @@
 let playerSelection;
-// let computerSelection;
 
 const btnRock = document.querySelector('.buttonRock');
 btnRock.addEventListener('click', () => {
     playerSelection = 'rock';
-    playRound(playerSelection);
+    let result = playRound(playerSelection);
+    console.log(result);
 });
 
 const btnPaper = document.querySelector('.buttonPaper');
@@ -33,8 +33,8 @@ function getComputerChoice () {
 
 function playRound (playerSelection) {
     const computerSelection = getComputerChoice();
-    console.log('computer selection =',computerSelection);
-    console.log(`${playerSelection} vs ${computerSelection}`);
+    // console.log('computer selection =',computerSelection);
+    // console.log(`${playerSelection} vs ${computerSelection}`);
 
     // Draw
     if (playerSelection === 'rock' && computerSelection === 'rock') {
