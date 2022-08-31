@@ -1,0 +1,52 @@
+* {
+    font-family: courier;
+  }
+
+body,
+.history-container {
+    flex-direction: column;
+}
+
+body,
+.btn-container,
+.choices-container,
+.history-container {
+    display: flex;
+}
+
+.title {
+    font-size: xx-large;
+}
+
+.title2 {
+    font-size: x-large;
+}
+
+.title,
+.title2 {
+    font-weight: 800;
+    font-family: monospace;
+    margin: 20px;
+}
+
+.btn {
+    margin: 5px;
+    flex: auto;
+}
+
+.btn-container {
+    margin: 0px 10px 10px;
+}
+
+.history-container,
+.choices-container {
+    justify-content: space-around;
+}
+
+.history-container {
+    gap: 10px;
+}
+
+div.history-container {
+    margin: 20px;
+}
