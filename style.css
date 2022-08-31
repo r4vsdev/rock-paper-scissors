@@ -2,18 +2,6 @@
     font-family: courier;
   }
 
-body,
-.history-container {
-    flex-direction: column;
-}
-
-body,
-.btn-container,
-.choices-container,
-.history-container {
-    display: flex;
-}
-
 .title {
     font-size: xx-large;
 }
@@ -27,6 +15,25 @@ body,
     font-weight: 800;
     font-family: monospace;
     margin: 20px;
+}
+
+body,
+.history-container {
+    flex-direction: column;
+}
+
+body,
+.btn-container,
+.choices-container,
+.history-container,
+.score-container {
+    display: flex;
+}
+
+.score-container {
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
 }
 
 .btn {

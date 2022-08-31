@@ -1,5 +1,5 @@
 let playerSelection;
-let result;
+let matchResult;
 let computerScore = 0;
 let playerScore   = 0;
 
@@ -14,42 +14,30 @@ function getComputerChoice () {
     }
 }
 
-const container = document.querySelector('.result-container');
+const historyContainer = document.querySelector('.history-container');
 
-const content = document.createElement('div');
-content.textContent = result;
-container.appendChild(content);
+const result = document.createElement('div');
+result.textContent = matchResult;
+historyContainer.appendChild(result);
 
-// const content2 = document.createElement('div');
-// content2.textContent = 'Score Board:';
-// container.appendChild(content2);
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+    matchResult = playRound(button.id);
+    console.log(matchResult);
+    result.textContent = matchResult;
+    });
+})
 
-const btnRock = document.querySelector('#rock');
-btnRock.addEventListener('click', () => {
-    playerSelection = btnRock.id;
-    result = playRound(playerSelection);
-    // console.log(result);
-    content.textContent = result;
-});
+// escolhe o scoreaboard-container e poe o placar ao vivo
+const scoreContainer = document.querySelector('.score-container');
 
-const btnPaper = document.querySelector('#paper');
-btnPaper.addEventListener('click', () => {
-    playerSelection = btnRock.id;
-    result = playRound(playerSelection);
-    // console.log(result);
-    content.textContent = result;
-});
-
-const btnScissors = document.querySelector('#scissors');
-btnScissors.addEventListener('click', () => {
-    playerSelection = btnRock.id;
-    result = playRound(playerSelection);
-    // console.log(result);
-    content.textContent = result;
-});
+const playerScoreDiv = document.createElement('div')
+playerScoreDiv.textContent = 'test';
+scoreContainer.appendChild(playerScoreDiv);
 
 function playRound (playerSelection) {
-    if (playerScore === 5 || computerScore === 5) {return }
+    if (playerScore >= 5 || computerScore >= 5) {return }
 
     const computerSelection = getComputerChoice();
     // console.log('computer selection =',computerSelection);
@@ -57,11 +45,11 @@ function playRound (playerSelection) {
 
     // Draw
     if (playerSelection === 'rock' && computerSelection === 'rock') {
-        return 'Draw';
+        return 'Draw! You both chose rock';
     } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        return 'Draw';
+        return 'Draw! You both chose paper';
     } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return 'Draw';
+        return 'Draw! You both chose scissors';
     
     // Lose
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
