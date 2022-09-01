@@ -24,12 +24,12 @@ const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
     matchResult = playRound(button.id);
-    console.log(matchResult);
+    // console.log(matchResult);
     result.textContent = matchResult;
     });
 })
 
-// escolhe o scoreaboard-container e poe o placar ao vivo
+// escolhe o score-container e poe o placar ao vivo
 const scoreContainer = document.querySelector('.score-container');
 
 const playerScoreDiv = document.createElement('div')
@@ -40,8 +40,13 @@ function playRound (playerSelection) {
     if (playerScore >= 5 || computerScore >= 5) {return }
 
     const computerSelection = getComputerChoice();
-    // console.log('computer selection =',computerSelection);
-    // console.log(`${playerSelection} vs ${computerSelection}`);
+    
+    // Scoreboard
+    const playerChoice = document.querySelector('.playerChoice');
+    playerChoice.textContent = playerSelection;
+    
+    const computerChoice = document.querySelector('.computerChoice');
+    computerChoice.textContent = computerSelection;
 
     // Draw
     if (playerSelection === 'rock' && computerSelection === 'rock') {
