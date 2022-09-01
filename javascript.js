@@ -19,13 +19,10 @@ buttons.forEach((button) => {
     });
 })
 
-
-
 function printScore () {
     const scoreContainer = document.querySelector('.score-container');
     scoreContainer.textContent = `${playerScore} vs ${computerScore}`;
 }
-
 
 function getComputerChoice () {
     let x = Math.floor(Math.random() * 3);
@@ -47,8 +44,13 @@ function printChoices () {
 }
 
 function playRound (playerSelection) {
-    if (playerScore >= 5 || computerScore >= 5) {
-        console.log('game over');
+    if (playerScore >= 5) {
+        const endResult = document.querySelector('.end-result');
+        endResult.textContent = 'Congratulations! You Won!!!'
+        return 
+    } else if (computerScore >= 5) {
+        const endResult = document.querySelector('.end-result');
+        endResult.textContent = 'You Lost!'
         return
     }
 
