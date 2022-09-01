@@ -93,5 +93,4 @@ function playRound (playerSelection) {
         printScore();
         return `You Won! ${playerSelection} beats ${computerSelection}`;
     }
-    
 }

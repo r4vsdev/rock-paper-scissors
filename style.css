@@ -57,3 +57,7 @@ body,
 div.history-container {
     margin: 20px;
 }
+
+.end-result {
+    color: red;
+}
