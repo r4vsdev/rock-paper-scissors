@@ -1,7 +1,31 @@
 let playerSelection;
+let computerSelection;
 let matchResult;
 let computerScore = 0;
 let playerScore   = 0;
+
+const resultContainer = document.querySelector('.result-container');
+
+const result = document.createElement('div');
+result.textContent = matchResult;
+resultContainer.appendChild(result);
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        matchResult = playRound(button.id);
+        result.textContent = matchResult;
+    });
+})
+
+
+
+function printScore () {
+    const scoreContainer = document.querySelector('.score-container');
+    scoreContainer.textContent = `${playerScore} vs ${computerScore}`;
+}
+
 
 function getComputerChoice () {
     let x = Math.floor(Math.random() * 3);
@@ -14,40 +38,23 @@ function getComputerChoice () {
     }
 }
 
-const historyContainer = document.querySelector('.history-container');
-
-const result = document.createElement('div');
-result.textContent = matchResult;
-historyContainer.appendChild(result);
-
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-    matchResult = playRound(button.id);
-    // console.log(matchResult);
-    result.textContent = matchResult;
-    });
-})
-
-// escolhe o score-container e poe o placar ao vivo
-const scoreContainer = document.querySelector('.score-container');
-
-const playerScoreDiv = document.createElement('div')
-playerScoreDiv.textContent = 'test';
-scoreContainer.appendChild(playerScoreDiv);
-
-function playRound (playerSelection) {
-    if (playerScore >= 5 || computerScore >= 5) {return }
-
-    const computerSelection = getComputerChoice();
-    
-    // Scoreboard
+function printChoices () {
     const playerChoice = document.querySelector('.playerChoice');
     playerChoice.textContent = playerSelection;
     
     const computerChoice = document.querySelector('.computerChoice');
     computerChoice.textContent = computerSelection;
+}
 
+function playRound (playerSelection) {
+    if (playerScore >= 5 || computerScore >= 5) {
+        console.log('game over');
+        return
+    }
+
+    computerSelection = getComputerChoice();
+    printChoices();
+    
     // Draw
     if (playerSelection === 'rock' && computerSelection === 'rock') {
         return 'Draw! You both chose rock';
@@ -59,28 +66,30 @@ function playRound (playerSelection) {
     // Lose
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
         computerScore += 1;
+        printScore();
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerScore += 1;
+        printScore();
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         computerScore += 1;
+        printScore();
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     
     // Won
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore += 1;
+        printScore();
         return `You Won! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore += 1;
+        printScore();
         return `You Won! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore += 1;
+        printScore();
         return `You Won! ${playerSelection} beats ${computerSelection}`;
     }
-    
-}
-
-function playGame (playerSelection) {
     
 }
