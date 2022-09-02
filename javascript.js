@@ -1,3 +1,13 @@
+
+// TO DO:
+// separa a coloracao entre o titulo, o local dos botoes, e o fim da pagina onde o resultado final vai aparecer;
+// coloca um rodape com meu nome r4vsdev;
+// substitui os botoes do player por icones do whatsapp;
+// acrescenta os mesmos icones do lado do cpu;
+// centraliza o placar
+// o resultado final vai embaixo
+
+
 let playerSelection;
 let computerSelection;
 let matchResult;
