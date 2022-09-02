@@ -4,6 +4,9 @@
 // coloca um rodape com meu nome r4vsdev;
 // substitui os botoes do player por icones do whatsapp;
 // acrescenta os mesmos icones do lado do cpu;
+// estiliza o botao pra ele ficar redondo
+// estiliza o hover dos botoes
+// 
 // centraliza o placar
 // o resultado final vai embaixo
 
