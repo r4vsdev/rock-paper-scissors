@@ -1,28 +1,12 @@
-
 // TO DO:
-// o resultado final vai embaixo
-
+// fazer uma funcao que exibe a mensagem que explica o resultado do round
 
 let playerSelection;
 let computerSelection;
 let matchResult;
 let computerScore = 0;
 let playerScore   = 0;
-
-const resultContainer = document.querySelector('.result-container');
-
-const result = document.createElement('div');
-result.textContent = matchResult;
-resultContainer.appendChild(result);
-
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        playerSelection = button.id;
-        matchResult = playRound(button.id);
-        result.textContent = matchResult;
-    });
-})
+let roundExplanation;
 
 function printScore () {
     const scoreContainer = document.querySelector('.score-container');
@@ -61,36 +45,69 @@ function playRound (playerSelection) {
 
     computerSelection = getComputerChoice();
     printChoices();
-    
+        
     // Draw
-    if (playerSelection === computerSelection) return 'Draw'
-    
+    if (playerSelection === computerSelection) {
+        roundExplanation = `You both chose ${playerSelection}!`
+
+        return 'Draw';
+    } 
     // Lose
     if (playerSelection === 'rock' && computerSelection === 'paper') {
         computerScore += 1;
         printScore();
+        roundExplanation = `${computerSelection} beats ${playerSelection}!`;
+        
         return 'You Lose!';
+
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerScore += 1;
         printScore();
+        roundExplanation = `${computerSelection} beats ${playerSelection}!`;
+        
         return 'You Lose!';
+
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         computerScore += 1;
         printScore();
+        roundExplanation = `${computerSelection} beats ${playerSelection}!`;
+        
         return 'You Lose!';
     
     // Won
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore += 1;
         printScore();
+        roundExplanation = `${playerSelection} beats ${computerSelection}!`;
+
         return 'You Won!';
+
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore += 1;
         printScore();
+        roundExplanation = `${playerSelection} beats ${computerSelection}!`;
+
         return 'You Won!';
+
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore += 1;
         printScore();
+        roundExplanation = `${playerSelection} beats ${computerSelection}!`;
+
         return 'You Won!';
     }
 }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playerSelection = button.id;
+        matchResult = playRound(button.id);
+        
+        const resultContainer = document.querySelector('.result-container');
+        resultContainer.textContent = matchResult;
+
+        const explanationMessage = document.querySelector('.explanation');
+        explanationMessage.textContent = roundExplanation;
+    });
+})

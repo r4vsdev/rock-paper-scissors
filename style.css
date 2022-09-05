@@ -32,10 +32,10 @@ div {
 /* main */
 
 .title2 {
-    font-size: x-large;
+    font-size: xx-large;
     color: white;
     font-family: monospace;
-    font-weight: 800;
+    font-weight: 900;
 
 }
 
@@ -44,11 +44,16 @@ div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px 0px;
 }
 
 .score-font {
     font-size: xx-large;
     font-weight: 900;
+}
+
+.explanation {
+    margin: 20px 0px;
 }
 
 body {
