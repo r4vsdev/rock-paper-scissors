@@ -41,6 +41,9 @@ div {
 
 .main {
     background-color: #212835;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .score-font {
@@ -53,19 +56,12 @@ body {
 }
 
 .btn-container,
-.choices-container,
-.score-container {
+.choices-container {
     display: flex;
 }
 
-.score-container {
-    align-items: center;
-    justify-content: space-around;
-    margin: 10px;
-}
-
 .btn-container {
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     margin: 10px;
     gap: 100px;

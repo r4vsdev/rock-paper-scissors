@@ -63,39 +63,34 @@ function playRound (playerSelection) {
     printChoices();
     
     // Draw
-    if (playerSelection === 'rock' && computerSelection === 'rock') {
-        return 'Draw! You both chose rock';
-    } else if (playerSelection === 'paper' && computerSelection === 'paper') {
-        return 'Draw! You both chose paper';
-    } else if (playerSelection === 'scissors' && computerSelection === 'scissors') {
-        return 'Draw! You both chose scissors';
+    if (playerSelection === computerSelection) return 'Draw'
     
     // Lose
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+    if (playerSelection === 'rock' && computerSelection === 'paper') {
         computerScore += 1;
         printScore();
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return 'You Lose!';
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerScore += 1;
         printScore();
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return 'You Lose!';
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
         computerScore += 1;
         printScore();
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return 'You Lose!';
     
     // Won
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
         playerScore += 1;
         printScore();
-        return `You Won! ${playerSelection} beats ${computerSelection}`;
+        return 'You Won!';
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
         playerScore += 1;
         printScore();
-        return `You Won! ${playerSelection} beats ${computerSelection}`;
+        return 'You Won!';
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
         playerScore += 1;
         printScore();
-        return `You Won! ${playerSelection} beats ${computerSelection}`;
+        return 'You Won!';
     }
 }
