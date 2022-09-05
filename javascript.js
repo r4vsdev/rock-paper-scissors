@@ -1,5 +1,5 @@
 // TO DO:
-// fazer uma funcao que exibe a mensagem que explica o resultado do round
+// consertar o problema que eh necessario clicar qnd se tem 5 pts pra aparecer a mensagem de vitoria
 
 let playerSelection;
 let computerSelection;
@@ -7,6 +7,23 @@ let matchResult;
 let computerScore = 0;
 let playerScore   = 0;
 let roundExplanation;
+
+function showGameResult () {
+    if (playerScore >= 5) {
+        const endResult = document.querySelector('.end-result');
+        endResult.textContent = 'Congratulations! You Won!!!';
+        endResult.style.color = 'green';
+        
+        return 'Congratulations! You Won!!!';
+    }
+    if (computerScore >= 5) {
+        const endResult = document.querySelector('.end-result');
+        endResult.textContent = 'You Lost!';
+        endResult.style.color = 'red';
+       
+        return 'You Lost!';
+    }
+}
 
 function printScore () {
     const scoreContainer = document.querySelector('.score-container');
@@ -33,15 +50,8 @@ function printChoices () {
 }
 
 function playRound (playerSelection) {
-    if (playerScore >= 5) {
-        const endResult = document.querySelector('.end-result');
-        endResult.textContent = 'Congratulations! You Won!!!'
-        return 
-    } else if (computerScore >= 5) {
-        const endResult = document.querySelector('.end-result');
-        endResult.textContent = 'You Lost!'
-        return
-    }
+    if (playerScore >= 5) return
+    if (computerScore >= 5) return
 
     computerSelection = getComputerChoice();
     printChoices();
@@ -57,13 +67,15 @@ function playRound (playerSelection) {
         computerScore += 1;
         printScore();
         roundExplanation = `${computerSelection} beats ${playerSelection}!`;
-        
+        showGameResult();
+
         return 'You Lose!';
 
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
         computerScore += 1;
         printScore();
         roundExplanation = `${computerSelection} beats ${playerSelection}!`;
+        showGameResult();
         
         return 'You Lose!';
 
@@ -71,6 +83,7 @@ function playRound (playerSelection) {
         computerScore += 1;
         printScore();
         roundExplanation = `${computerSelection} beats ${playerSelection}!`;
+        showGameResult();
         
         return 'You Lose!';
     
@@ -79,6 +92,7 @@ function playRound (playerSelection) {
         playerScore += 1;
         printScore();
         roundExplanation = `${playerSelection} beats ${computerSelection}!`;
+        showGameResult();
 
         return 'You Won!';
 
@@ -86,6 +100,7 @@ function playRound (playerSelection) {
         playerScore += 1;
         printScore();
         roundExplanation = `${playerSelection} beats ${computerSelection}!`;
+        showGameResult();
 
         return 'You Won!';
 
@@ -93,6 +108,7 @@ function playRound (playerSelection) {
         playerScore += 1;
         printScore();
         roundExplanation = `${playerSelection} beats ${computerSelection}!`;
+        showGameResult();
 
         return 'You Won!';
     }
