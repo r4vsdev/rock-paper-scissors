@@ -6,13 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <script src="javascript.js" defer></script>
 </head>
 <body>
     <div class="header">
-        <h1 class="title"> Rock, Paper or Scissors </h1>
+        <h1 class="title"> ROCK PAPER SCISSORS </h1>
     </div>
     <div class="main">
+        <div class="title2"> Result: </div>
+        <div class="result-container"> </div>
         <div class="btn-container">
             <div class="player-container">
                 <div>
@@ -31,7 +39,7 @@
                     </button>
                 </div>
             </div>
-            <div> 0 x 0 </div>
+            <div class="score-container score-font"> 0 x 0 </div>
             <div class="cpu-container">
                 <div class="circle">
                     <span> ✊ </span>
@@ -51,10 +59,7 @@
             <div class="computerChoice">  </div>
         </div>
         
-        <div class="title2"> Result: </div>
-        <div class="result-container"> </div>
         <div class="title2"> Score: </div>
-        <div class="score-container"> 0 vs 0 </div>
         <div class="end-result title">  </div>
     </div>
     <div class="footer">
