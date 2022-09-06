@@ -1,5 +1,5 @@
 // TO DO:
-// consertar o problema que eh necessario clicar qnd se tem 5 pts pra aparecer a mensagem de vitoria
+// aumentar o botao quando estiver em hover
 
 let playerSelection;
 let computerSelection;
