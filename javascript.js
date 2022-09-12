@@ -1,6 +1,3 @@
-// TO DO:
-// replace the words on the choices container for symbols
-
 let playerSelection;
 let computerSelection;
 let matchResult;
