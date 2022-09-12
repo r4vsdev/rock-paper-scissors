@@ -69,6 +69,8 @@ body {
 .choices-container {
     display: flex;
     justify-content: space-around;
+    gap: 10px;
+    font-size: xx-large;
 }
 
 .cpu-container,
@@ -107,7 +109,7 @@ span {
 }
 
 .end-result {
-    color: red;
+    margin: 10px;
 }
 
 /* footer */

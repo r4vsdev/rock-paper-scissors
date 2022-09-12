@@ -1,5 +1,5 @@
 // TO DO:
-// aumentar o botao quando estiver em hover
+// replace the words on the choices container for symbols
 
 let playerSelection;
 let computerSelection;
@@ -27,7 +27,7 @@ function showGameResult () {
 
 function printScore () {
     const scoreContainer = document.querySelector('.score-container');
-    scoreContainer.textContent = `${playerScore} vs ${computerScore}`;
+    scoreContainer.textContent = `${playerScore} x ${computerScore}`;
 }
 
 function getComputerChoice () {
@@ -42,11 +42,20 @@ function getComputerChoice () {
 }
 
 function printChoices () {
+    let playerSymbol;
+    if (playerSelection === 'rock')     playerSymbol = '✊';
+    if (playerSelection === 'paper')    playerSymbol = '✋';
+    if (playerSelection === 'scissors') playerSymbol = '✌️';
+    let computerSymbol;
+    if (computerSelection === 'rock')     computerSymbol = '✊';
+    if (computerSelection === 'paper')    computerSymbol = '✋';
+    if (computerSelection === 'scissors') computerSymbol = '✌️';
+
     const playerChoice = document.querySelector('.playerChoice');
-    playerChoice.textContent = playerSelection;
+    playerChoice.textContent = playerSymbol;
     
     const computerChoice = document.querySelector('.computerChoice');
-    computerChoice.textContent = computerSelection;
+    computerChoice.textContent = computerSymbol;
 }
 
 function playRound (playerSelection) {
