@@ -49,9 +49,10 @@ div {
     padding: 20px 0px;
 }
 
-.score-font {
+.score-container {
     font-size: xx-large;
     font-weight: 900;
+    margin: 40px;
 }
 
 .explanation {
@@ -72,19 +73,15 @@ body {
 .choices-container {
     display: flex;
     justify-content: space-around;
-    gap: 10px;
+    gap: 20px;
     font-size: xx-large;
+    margin: 20px;
 }
 
-.cpu-container,
 .player-container {
     display: flex;
-    flex-direction: column;
-}
-
-.player-container,
-.cpu-container {
     gap: 20px;
+
 }
 
 .circle {
